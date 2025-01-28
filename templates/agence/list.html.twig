@@ -1,0 +1,58 @@
+{# templates/agence/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Agences{% endblock %}
+
+{% block body %}
+    <div class="container  col-10  d-flex align-items-center justify-content-center">
+      <div class="w-100 p-2 bg-white border shadow boxBlanc rounded  d-flex align-items-center justify-content-center">
+          <div class="container p-2 rounded-3 col-12   border border-light-subtle">
+              <h4 class="mb-3 px-2">Agences</h4>
+              <div class=" col-12 d-flex align-items-center justify-content-between mb-4">
+                  <div class="col-12 d-flex justify-content-between align-item-center">
+                      <div class="col-2 d-flex justify-content-center align-item-center">
+                          <h5 class="fs-5 text-center  mt-1">Listes des Agences</h5>
+                      </div>
+  
+                      <div class="col-10 d-flex justify-content-evenly align-item-center mx-4 ">
+                          
+                          <div class=" ">
+                             <a href="{{path('app_agence_add')}}" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-green-500"> Ajouter</a>
+                          </div>
+                          
+                      </div>
+                  </div>
+  
+              </div>
+  
+              <table class="table">
+                  <thead class="table-info">
+                      <tr class="text-center">
+                          <th scope="col">Numero</th>
+                          <th scope="col">Adresse</th>
+                          <th scope="col">Telephone</th>
+                          <th scope="col">Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody id="suggestions">
+                        {% for agence in agences %}
+                          <tr class="text-center">
+                              <td>{{ agence.numero }}</td>
+                              <td>{{ agence.adresse }}</td>
+                              <td>{{ agence.telephone }}</td>
+                              <td>
+                                  <button type="button" class="btn btn-success">Voir</button>
+<button type="button" class="btn btn-danger">Supprimer</button>
+                              </td>
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+  
+              
+  
+  
+          </div>
+      </div>
+  </div>
+{% endblock %}
